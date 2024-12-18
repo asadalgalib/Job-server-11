@@ -22,12 +22,4 @@
  *  if valid : provide the data
  *  else : logout
  * 
- *  
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  */

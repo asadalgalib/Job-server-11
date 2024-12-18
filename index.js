@@ -10,7 +10,7 @@ const port = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://job-web-90438.web.app',
     credentials: true
 }));
 
@@ -43,9 +43,9 @@ const client = new MongoClient(uri, {
 
 async function run() {
     try {
-        await client.connect();
-        await client.db("admin").command({ ping: 1 });
-        console.log("Pinged your deployment. You successfully connected to MongoDB!");
+        // await client.connect();
+        // await client.db("admin").command({ ping: 1 });
+        // console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
         // Job related API's
         const jobCollection = client.db('JobPortal').collection('Jobs');
@@ -142,7 +142,7 @@ async function run() {
 
             res.cookie('token', token, {
                 httpOnly: true,
-                secure: false
+                secure: true
             }).send({ success: true });
         })
 
